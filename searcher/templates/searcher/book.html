@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.min.css">
+    <style>
+        .list-group-item{
+            border-color: #365899;
+            color: black;
+        }
+        .container-fluid{
+            width: 90%;
+        }
+        @media (min-device-width: 600px) {
+            .container-fluid{
+                width: 75%;
+            }
+        }
+    </style>
+</head>
+<body>
+<ol class="breadcrumb" style="border-radius: 0; background: #365899">
+  <li class="breadcrumb-item active" style="font-size: 20px; font-weight: bold; font-family: sans-serif; color: white;" ><a href="{% url 'home' %}" style="color: white">PDF download</a></li>
+</ol>
+
+
+<div class="container-fluid">
+    <div class = "row">
+        <div class="col-md-4">
+            <img src="{{ result.image }}" alt="">
+        </div>
+        <div class="col-md-8">
+            <p style="color: #365899; font-family: Arial; font-size: 25px;line-height: 40px">{{result.name}}</p>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Authors: </strong>{{ result.author }}</li>
+                <li class="list-group-item"><strong>Year of Release: </strong> {{ result.year }}</li>
+                <li class="list-group-item"><strong>Number of Pages: </strong> {{ result.pages }}</li>
+                <li class="list-group-item"><strong>File Size: </strong>{{ result.size }}</li>
+                <li class="list-group-item"><strong>File Type: </strong> PDF</li>
+            </ul>
+        </div>
+    </div>
+    <a href="{{ result.book_id }}" class="btn btn-info btn-lg btn-block" style="background: #365899;margin-top: 30px;color: white">DOWNLOAD</a>
+</div>
+
+
+</body>
+</html>

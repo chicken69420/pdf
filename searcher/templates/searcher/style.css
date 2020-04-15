@@ -1,0 +1,9 @@
+form {
+    display: flex;
+    justify-content: space-around;
+}
+form input{
+    width: 90%;
+    font-size: 45px;
+    font-family: sans-serif;
+}
