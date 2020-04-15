@@ -13,7 +13,7 @@ def home(request):
 
 def book(request, book_id):
     downloadUrl = downloadBook('https://www.pdfdrive.com/a-e' + str(book_id) + '.html')
-    return render(request, 'searcher/book.html',{'result':downloadUrl})
+    return render(request, 'searcher/book.html',{'result':downloadUrl[0], 'av': downloadUrl[1]})
 
 class Book:
     def __init__(self, name, image, year, size, pages,book_id, desc,author):
@@ -63,12 +63,13 @@ def downloadBook(bookUrl):
     pages = spans[0].text
     year = spans[2].text
     size = spans[4].text
+    isAvailable = main_book.find('a',id='download-button-link').has_attr('data-original-title')
     authors = main_book.find_all('span', {'itemprop': "creator"})
     for i in range(len(authors)):
         authors[i] = authors[i].text
 
     result = Book(name=bookName, image=imgLink, size=size, pages=pages, book_id=downloadUrl, desc='',year=year, author=(', ').join(authors))
-    return result
+    return [result,isAvailable]
 
 def session_finder(k):
     idx = k.find('session')

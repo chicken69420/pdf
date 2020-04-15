@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'sd@)8t2hkz4%!26ohjxpd1c0q=e(796_0cqz(k&*nvzt#7$-#c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['192.168.1.100','localhost','192.168.43.5']
+ALLOWED_HOSTS = ['navjeet.xyz', 'localhost']
 
 
 # Application definition
